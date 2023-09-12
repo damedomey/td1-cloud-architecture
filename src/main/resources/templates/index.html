@@ -1,1 +1,38 @@
-<h1>hello world!</h1>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Counter List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: solid 1px black;
+            padding: 8px;
+            text-align: left;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<h1>Counter List</h1>
+<p>
+    Cette application intercepte toutes les urls possibles et compte le nombre de visite sur chaque
+    url. Toutes les pages affichent toujours les stats de demande de toutes les pages.
+</p>
+<table>
+    <thead>
+    <tr>
+        <th>Page Name</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="counter : ${counters}">
+        <td th:text="${counter.pageName}">Page Name</td>
+        <td th:text="${counter.total}">Total</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
